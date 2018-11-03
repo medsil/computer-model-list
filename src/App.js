@@ -1,14 +1,11 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
 
 class App extends Component {
 
   constructor(props) {
     super(props);
-    // Don't call this.setState() here!
     this.state = { 
-
       computers : [
         {
           name: "Ivel Z3",
@@ -35,26 +32,21 @@ class App extends Component {
           origin: "USA"
         }
       ]
-
     };
   }
-
 
   render() {
     return (
       
       <div className="App">
-        <span>
-        <img src={logo} className="App-logo" alt="logo" />
-        </span>
-
         <h1>Select a computer model</h1>
-      
-      { this.state.computers.map((item) => (
-        <p>{item.name + item.year}</p>
-      ))
-      }
-
+        <select>
+          <option value="">-- pick a model --</option>
+            { this.state.computers.map((item) => (
+            <option>{item.name  + " (" + item.year + ")"}
+            </option>))
+            }
+        </select>
       </div>
     );
   }
